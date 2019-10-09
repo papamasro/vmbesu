@@ -14,6 +14,9 @@ Vagrant.configure(2) do |config|
   config.vm.hostname = "hyperledger-vm"
   config.vm.box = "ubuntu/xenial64"
   
+  # Forward Composer REST API port
+  config.vm.network "forwarded_port", guest: 32768, host: 32768
+  
   config.vm.provider :virtualbox do |vb|
     vb.memory = "4096"
   end
